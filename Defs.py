@@ -14,6 +14,8 @@ def CadastrarCliente():
     email = str(input('E-mail: '))
     telefone = int(input('Telefone: '))
     matricula = int(input('Matrícula: '))
+    with open(f'{nome}.txt', 'w') as arq:
+        arq.write(f'Nome: {nome} \nSenha: {senha} \nE-mail: {email} \nTelefone: {telefone} \nMatricula: {matricula}')
     print('[Cadastro Concluído]')
 
 
@@ -30,6 +32,10 @@ def CadastrarEndereçoCliente():
 
 def ConsultarCliente():
     nome_cliente = str(input('Nome do ciente: '))
+    with open(f'{nome_cliente}.txt', 'r') as arq:
+        for i in arq:
+            print(i)
+
 
 
 def SairCadastro():

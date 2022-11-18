@@ -9,6 +9,14 @@ while True:
             r = str(input('Deseja cadastrar outro cliente?[S/N]: ')).strip().upper()
             if r == 'N':
                 break
+            while r != 'S':
+                print('ERRO! Digite uma opção válida!')
+                r = str(input('Deseja cadastrar outro cliente?[S/N]: ')).strip().upper()
+                if r == 'N':
+                    break
+            if r == 'N':
+                break
+
 
     if opcao == 2:
         while True:
