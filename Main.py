@@ -1,7 +1,7 @@
 import Defs
 
 while True:
-    Defs.cabeçalho()
+    Defs.cabecalho()
     opcao = int(input('Opção: ').strip())
     if opcao == 1:
         while True:
@@ -24,6 +24,14 @@ while True:
             r = str(input('Deseja cadastrar outro endereço?[S/N]: ')).strip().upper()
             if r == 'N':
                 break
+            while r != 'S':
+                print('ERRO! Digite uma opção válida!')
+                r = str(input('Deseja cadastrar outro endereço?[S/N]: ')).strip().upper()
+                if r == 'N':
+                    break
+            if r == 'N':
+                break
+
 
     if opcao == 3:
         while True:
