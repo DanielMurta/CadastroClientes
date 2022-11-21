@@ -1,10 +1,10 @@
 Lista_Nomes = []
 def cabecalho():
     print('-'*34)
-    print('[1] Cadastrar Cliente')
-    print('[2] Cadastrar Endereço do Cliente')
-    print('[3] Consultar Cliente')
-    print('[4] Sair')
+    print('\033[36m[1] Cadastrar Cliente\033[m')
+    print('\033[36m[2] Cadastrar Endereço do Cliente\033[m')
+    print('\033[36m[3] Consultar Cliente\033[m')
+    print('\033[36m[4] Sair\033[m')
     print('-'*34)
 
 
@@ -17,14 +17,15 @@ def CadastrarCliente():
     telefone = int(input('Telefone: '))
     matricula = int(input('Matrícula: '))
     with open(f'{nome}.txt', 'w') as arq:
-        arq.write(f'Nome: {nome.capitalize()} \nSenha: {senha} \nE-mail: {email} \nTelefone: {telefone} \nMatricula: {matricula}')
-    print('[Cadastro Concluído]')
+        arq.write(f'Nome: {nome.capitalize()} \nSenha: {senha} \nE-mail: {email} \nTelefone: {telefone} \nMatricula: '
+                  f'{matricula}')
+    print('\033[32m[Cadastro Concluído]\033[m')
 
 
-def CadastrarEndereçoCliente():
+def CadastrarEnderecoCliente():
     usuario = str(input('Deseja cadastrar o endereço de qual usuário?: ')).strip().lower()
     while usuario not in Lista_Nomes:
-        print('Você precisa digitar o nome de um cliente já cadastrado!')
+        print('\033[33mVocê precisa digitar o nome de um cliente já cadastrado!\033[m')
         usuario = str(input('Deseja cadastrar o endereço de qual usuário?: ')).strip().lower()
     print('[Forneça o Endereço do usuário]')
     rua = str(input('Rua: '))
@@ -36,13 +37,13 @@ def CadastrarEndereçoCliente():
     with open(f'{usuario}.txt', 'a') as arq:
         arq.write(f'\nRua: {rua} \nNumero Casa/Apartamento: {numero_casa_ap} \nComplemento: {complemento} \nBairro: '
                   f'{bairro} \nCidade: {cidade} \nEstado: {estado}')
-        print('[Endereço adicionado]')
+        print('\033[32m[Endereço adicionado]\033[m')
 
 
 def ConsultarCliente():
     nome_cliente = str(input('Nome do ciente: ')).strip().lower()
     while nome_cliente not in Lista_Nomes:
-        print('Você precisa digitar o nome de um cliente já cadastrado!')
+        print('\033[33mVocê precisa digitar o nome de um cliente já cadastrado!\033[m')
         nome_cliente = str(input('Nome do ciente: ')).strip().lower()
     with open(f'{nome_cliente}.txt', 'r') as arq:
         for i in arq:
@@ -54,4 +55,5 @@ def SairCadastro():
     print('Saindo do sistema, aguarde...')
     sleep(3)
     print('Sistema finalizado com sucesso!')
+
 
