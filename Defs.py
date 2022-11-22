@@ -14,8 +14,8 @@ def CadastrarCliente():
     Lista_Nomes.append(nome)
     senha = str(input('Senha: '))
     email = str(input('E-mail: '))
-    telefone = int(input('Telefone: '))
-    matricula = int(input('Matrícula: '))
+    telefone = str(input('Telefone: '))
+    matricula = str(input('Matrícula: '))
     with open(f'{nome}.txt', 'w') as arq:
         arq.write(f'Nome: {nome.capitalize()} \nSenha: {senha} \nE-mail: {email} \nTelefone: {telefone} \nMatricula: '
                   f'{matricula}')
@@ -45,6 +45,7 @@ def ConsultarCliente():
     while nome_cliente not in Lista_Nomes:
         print('\033[33mVocê precisa digitar o nome de um cliente já cadastrado!\033[m')
         nome_cliente = str(input('Nome do ciente: ')).strip().lower()
+    print('-'*34)
     with open(f'{nome_cliente}.txt', 'r') as arq:
         for i in arq:
             print(i)

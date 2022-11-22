@@ -54,11 +54,12 @@ while True:
             Defs.SairCadastro()
             break
 
-        else:
+        if opcao > 4:
             print('\033[31mEsse número não corresponde a nenhuma opção!\033[m')
 
     else:
         print('\033[31mDigite um valor numérico!\033[m')
+
 
 
 
