@@ -1,9 +1,9 @@
-import Defs
+import Defs  # Importa as funções do módulo 'Defs.py'
 
 while True:
     Defs.cabecalho()
     opcao = input('Opção: ').strip()
-    if opcao.isdigit():
+    if opcao.isdigit():  # Verifica se a opcao digitado é um número
         opcao = int(opcao)
         if opcao == 1:
             while True:
